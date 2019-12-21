@@ -1,144 +1,163 @@
 #include <iostream>
 #include <stdlib.h>
 using namespace std;
-//Arbore Binar(Binary tree);
-struct Nod{
+
+struct NOD{
 int info;
-Nod* s;
-Nod* d;
+NOD*s;
+NOD*d;
 };
 
-Nod* NodNou(int num){
-Nod*temp=new Nod;
+//ADAUGARE IN ARBORE
+
+NOD* NodNou(int num){
+NOD* temp=new NOD;
 temp->info=num;
 temp->s=NULL;
 temp->d=NULL;
 return temp;
 }
 
-Nod*inserare(Nod*radacina,int num){
+NOD* Adaugare(NOD*radacina,int num){
 if(radacina==NULL){
     radacina=NodNou(num);
     return radacina;
 }
 else if(radacina->info>=num){
-     cout<<"Nodul este adaugat la stanga"<<endl;
-     radacina->s=inserare(radacina->s,num);
+    cout<<"Nodul se adauga in stanga"<<endl;
+    radacina->s=Adaugare(radacina->s,num);
 }
 else{
-     cout<<"Nodul este adaugat la dreapta"<<endl;
-     radacina->d=inserare(radacina->d,num);
-    }
+    cout<<"Nodul se adauga la dreapta"<<endl;
+    radacina->d=Adaugare(radacina->d,num);
+}
 return radacina;
 }
 
-bool Cautare(Nod*radacina,int num){
-if(radacina==NULL){return false;}
-else if(radacina->info==num){return true;}
-else if(radacina->info>=num){return Cautare(radacina->s,num);}
-else{return Cautare(radacina->d,num);}
+//PARCURGERI ARBORE
+
+void PreOrdine(NOD* radacina){
+if(radacina!=NULL){
+   cout<<radacina->info<<" ";
+   PreOrdine(radacina->s);
+   PreOrdine(radacina->d);
+}
+return;
 }
 
-void PreOrdine(Nod* nod){
-if(nod!=NULL){
-    cout<<nod->info<<" ";
-    PreOrdine(nod->s);
-    PreOrdine(nod->d);
+void PostOrdine(NOD* radacina){
+if(radacina!=NULL){
+  PostOrdine(radacina->s);
+  PostOrdine(radacina->d);
+  cout<<radacina->info<<" ";
 }
-}
-
-void PostOrdine(Nod*nod){
-if(nod!=NULL){
-    PostOrdine(nod->s);
-    PostOrdine(nod->d);
-    cout<<nod->info<<" ";
-}
+return;
 }
 
-void InOrdine(Nod*nod){
-if(nod!=NULL){
-    InOrdine(nod->s);
-    cout<<nod->info<<" ";
-    InOrdine(nod->d);
+void InOrdine(NOD* radacina){
+if(radacina!=NULL){
+  InOrdine(radacina->s);
+  cout<<radacina->info<<" ";
+  InOrdine(radacina->d);
 }
-}
-
-
-void Afisare(Nod*radacina){
-if(radacina==NULL){cout<<"arboarele este gol"<<endl;}
-else{
-    cout<<"\nParcurgerea in PreOrdine"<<endl;
-    PreOrdine(radacina);
-    cout<<"\nParcurgerea in PostOrdine"<<endl;
-    PostOrdine(radacina);
-    cout<<"\nParcurgerea in InOrdine"<<endl;
-    InOrdine(radacina);
-
-}
+return;
 }
 
-unsigned NrNoduri(Nod* nod){
-unsigned num;
-if(nod==NULL){num=0;return num;}
-else{num=NrNoduri(nod->s)+NrNoduri(nod->d)+1;return num;}
-return num;
-}
-unsigned NrNoduriFrunza(Nod*nod){
-unsigned num;
-if(nod==NULL){num=0;return num;}
-else if(nod->s==NULL&&nod->d==NULL){num=1;return num;}
-else{
-    num=NrNoduriFrunza(nod->s)+NrNoduriFrunza(nod->d);
-    return num;
-}
+//NUMARUL DE NODURI DIN ARBORE
+
+unsigned NumarNoduri(NOD*radacina){
+unsigned num=0;
+if(radacina==NULL){num=0; return num;}
+else{num=NumarNoduri(radacina->s) + NumarNoduri(radacina->d)+1; return num;}
 return num;
 }
 
-unsigned InaltimeArbore(Nod*nod){
-unsigned num;
-if(nod==NULL){num=0;return num;}
-else if(nod->s==NULL&&nod->d==NULL){num=0;return num;}
-else if(nod->s>=nod->d){num=InaltimeArbore(nod->s)+1;return num;}
-else{num=InaltimeArbore(nod->d)+1;return num;}
+//NODURI FRUNZA DIN ARBORE
+
+unsigned NumarNoduriFrunza(NOD*radacina){
+unsigned num=0;
+if(radacina==NULL){num=0; return num;}
+else if(radacina->s==NULL&&radacina->d==NULL){num=1; return num;}
+else{num=NumarNoduriFrunza(radacina->s)+NumarNoduriFrunza(radacina->d); return num;}
 return num;
+}
+
+//INALTIME ARBORE
+
+unsigned InaltimeArbore(NOD*radacina){
+unsigned num;
+if(radacina==NULL){num=0; return num;}
+else if(radacina->s==NULL&&radacina->d==NULL){num=0; return num;}
+else if(InaltimeArbore(radacina->s)>=InaltimeArbore(radacina->d)){num=InaltimeArbore(radacina->s)+1; return num;}
+else{num=InaltimeArbore(radacina->d)+1; return num;}
+return num;
+}
+
+//CAUTARE  IN ARBORE
+
+bool Cautare(NOD*nod,int num){
+if(nod==NULL)return false;
+else if(nod->info==num)return true;
+else if(nod->info>=num)return Cautare(nod->s,num);
+else return Cautare(nod->d,num);
+}
+
+//AFISARE
+
+void Afisare(NOD* radacina){
+
+if(radacina==NULL){cout<<"Arborele este gol"<<endl;}
+//parcurgeri
+cout<<"\nParcurgerea PreOrdine"<<endl;
+PreOrdine(radacina);
+
+cout<<"\nParcurgerea PostOrdine"<<endl;
+PostOrdine(radacina);
+
+cout<<"\nParcurgerea InOrdine"<<endl;
+InOrdine(radacina);
+
+cout<<"\nIn arbore avem "<<NumarNoduri(radacina)<<" noduri"<<endl;
+
+cout<<"\nIn arbore avem "<<NumarNoduriFrunza(radacina)<<" noduri frunza"<<endl;
+
+cout<<"\nInaltimea arborelui este "<<InaltimeArbore(radacina)<<endl;
+
+return;
 }
 
 int main()
-{Nod*radacina=NULL;
-int alegere,num;
-while(1){
-      cout<<"\n1.Adauga un element in arbore"<<endl;
-      cout<<"2.Cauta un element in arbore"<<endl;
-      cout<<"3.Afisare"<<endl;
-      cout<<"4.Numar noduri"<<endl;
-      cout<<"5.Numar noduri frunza"<<endl;
-      cout<<"6.Inaltime arbore"<<endl;
-      cout<<"7.Iesire"<<endl;
-      cout<<"Introduce-ti alegerea"<<" ";
-      cin>>alegere;
-      switch(alegere){
-      case 1:{cout<<"Introduce-ti un element pentru a fi adaugat"<<endl;
-              cin>>num;
-              radacina=inserare(radacina,num);
-              break;
-             }
-       case 2:{cout<<"Introduce-ti un element pentru a fi cautat"<<endl;
-                cin>>num;
-                if(Cautare(radacina,num)==true){cout<<"Nodul "<<num<<" este prezent in arbore"<<endl;}
-                else{cout<<"Nodul "<<num<<" nu este prezent in arbore"<<endl;}
-                break;
-       }
-      case 3:{Afisare(radacina);
-              break;
-             }
-      case 4:{cout<<"Noi avem "<<NrNoduri(radacina)<<" noduri"<<endl;break;}
-      case 5:{cout<<"Avem "<<NrNoduriFrunza(radacina)<<" noduri frunza"<<endl;break;}
-      case 6:{cout<<"Arborele este de inaltime "<<InaltimeArbore(radacina)<<endl;break;}
-      case 7:{exit(1);}
-      default:{cout<<"Alegere gresita,incearca din nou"<<endl;}
-      }
-}
-
-
+{NOD* radacina=NULL;
+ int alegere,num;
+ while(1){
+    cout<<"\n1.Adaugare elemente in arbore"<<endl;
+    cout<<"2.Afisare "<<endl;
+    cout<<"3.Cautare in arbore"<<endl;
+    cout<<"4.Iesire"<<endl;
+    cout<<"Introduce-ti optiunea dorita"<<endl;
+    cin>>alegere;
+    switch(alegere){
+    case 1:{
+            cout<<"Dati numarul pe care vreti sa il adaugati in arbore"<<endl;
+            cin>>num;
+            radacina=Adaugare(radacina,num);
+            break;
+           }
+    case 2:{
+            Afisare(radacina);
+            break;
+           }
+    case 3:{cout<<"Introduce-ti numarul pentru a fi cautat"<<endl;
+            cin>>num;
+            if(Cautare(radacina,num)==true)cout<<"Nodul se afla in arbore"<<endl;
+            else cout<<"Nodul nu se afla in arbore"<<endl;
+            break;
+           }
+    case 4:{
+            exit(1);
+           }
+    default:{cout<<"Alegere gresita,incearca din nou"<<endl;}
+    }
+ }
     return 0;
 }
