@@ -1,0 +1,2775 @@
+
+---------Probleme de informatica--------
+
+# Problem 1
+Hi, here's your problem today. This problem was recently asked by Microsoft:
+
+You are given two linked-lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
+
+Example:
+Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
+Output: 7 -> 0 -> 8
+Explanation: 342 + 465 = 807.
+Here is the function signature as a starting point (in Python):
+# Definition for singly-linked list.
+class ListNode(object):
+  def __init__(self, x):
+    self.val = x
+    self.next = None
+
+class Solution:
+  def addTwoNumbers(self, l1, l2, c = 0):
+    # Fill this in.
+
+l1 = ListNode(2)
+l1.next = ListNode(4)
+l1.next.next = ListNode(3)
+
+l2 = ListNode(5)
+l2.next = ListNode(6)
+l2.next.next = ListNode(4)
+
+result = Solution().addTwoNumbers(l1, l2)
+while result:
+  print result.val,
+  result = result.next
+# 7 0 8
+
+Why Python? We recommend using Python as a generalist language for interviewing, as it is well-regarded in the tech industry and used across Google/YouTube, Facebook/Instagram, Netflix, Uber, Dropbox, Pinterest, Spotify, etc., It is easy to learn with readable syntax, and very similar in structure to other popular languages like Java, C/C++, Javascript, PHP, Ruby, etc. Python is generally faster to read/write though, which makes it ideal for interviews. You can, of course, use any language you like!
+
+# Problem 2
+Hi, here's your problem today. This problem was recently asked by Microsoft:
+
+Given a string, find the length of the longest substring without repeating characters.
+
+Here is an example solution in Python language. (Any language is OK to use in an interview, though we'd recommend Python as a generalist language utilized by companies like Google, Facebook, Netflix, Dropbox, Pinterest, Uber, etc.,)
+class Solution:
+  def lengthOfLongestSubstring(self, s):
+    # Fill this in.
+
+print Solution().lengthOfLongestSubstring('abrkaabcdefghijjxxx')
+# 10
+
+Can you find a solution in linear time?
+
+
+# Problem 3
+Hi, here's your problem today. This problem was recently asked by Twitter:
+
+A palindrome is a sequence of characters that reads the same backwards and forwards. Given a string, s, find the longest palindromic substring in s.
+
+Example: 
+Input: "banana"
+Output: "anana"
+
+Input: "million"
+Output: "illi"
+class Solution: 
+    def longestPalindrome(self, s):
+      # Fill this in.
+        
+# Test program
+s = "tracecars"
+print(str(Solution().longestPalindrome(s)))
+# racecar
+
+
+# Problem 4
+Hi, here's your problem today. This problem was recently asked by Uber:
+
+Imagine you are building a compiler. Before running any code, the compiler must check that the parentheses in the program are balanced. Every opening bracket must have a corresponding closing bracket. We can approximate this using strings. 
+
+Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid. 
+An input string is valid if:
+- Open brackets are closed by the same type of brackets.
+- Open brackets are closed in the correct order.
+- Note that an empty string is also considered valid.
+
+Example:
+Input: "((()))"
+Output: True
+
+Input: "[()]{}"
+Output: True
+
+Input: "({[)]"
+Output: False
+class Solution:
+  def isValid(self, s):
+    # Fill this in.
+
+# Test Program
+s = "()(){(())" 
+# should return False
+print(Solution().isValid(s))
+
+s = ""
+# should return True
+print(Solution().isValid(s))
+
+s = "([{}])()"
+# should return True
+print(Solution().isValid(s))
+
+
+# Problem 5
+Hi, here's your problem today. This problem was recently asked by AirBNB:
+
+Given a sorted array, A, with possibly duplicated elements, find the indices of the first and last occurrences of a target element, x. Return -1 if the target is not found.
+
+Example:
+Input: A = [1,3,3,5,7,8,9,9,9,15], target = 9
+Output: [6,8]
+
+Input: A = [100, 150, 150, 153], target = 150
+Output: [1,2]
+
+Input: A = [1,2,3,4,5,6,10], target = 9
+Output: [-1, -1]
+Here is a function signature example:
+class Solution: 
+  def getRange(self, arr, target):
+    # Fill this in.
+  
+# Test program 
+arr = [1, 2, 2, 2, 2, 3, 4, 7, 8, 8] 
+x = 2
+print(Solution().getRange(arr, x))
+# [1, 4]
+
+
+# Problem 6
+Hi, here's your problem today. This problem was recently asked by Google:
+
+Given a singly-linked list, reverse the list. This can be done iteratively or recursively. Can you get both solutions?
+
+Example: 
+Input: 4 -> 3 -> 2 -> 1 -> 0 -> NULL
+Output: 0 -> 1 -> 2 -> 3 -> 4 -> NULL
+class ListNode(object):
+  def __init__(self, x):
+    self.val = x
+    self.next = None
+  
+  # Function to print the list
+  def printList(self):
+    node = self
+    output = '' 
+    while node != None:
+      output += str(node.val)
+      output += " "
+      node = node.next
+    print(output)
+
+  # Iterative Solution
+  def reverseIteratively(self, head):
+    # Implement this.
+
+  # Recursive Solution      
+  def reverseRecursively(self, head):
+    # Implement this.
+
+# Test Program
+# Initialize the test list: 
+testHead = ListNode(4)
+node1 = ListNode(3)
+testHead.next = node1
+node2 = ListNode(2)
+node1.next = node2
+node3 = ListNode(1)
+node2.next = node3
+testTail = ListNode(0)
+node3.next = testTail
+
+print("Initial list: ")
+testHead.printList()
+# 4 3 2 1 0
+testHead.reverseIteratively(testHead)
+#testHead.reverseRecursively(testHead)
+print("List after reversal: ")
+testTail.printList()
+# 0 1 2 3 4
+
+# Problem 7
+Hi, here's your problem today. This problem was recently asked by Google:
+
+Given a list of numbers with only 3 unique numbers (1, 2, 3), sort the list in O(n) time.
+
+Example 1:
+Input: [3, 3, 2, 1, 3, 2, 1]
+Output: [1, 1, 2, 2, 3, 3, 3]
+def sortNums(nums):
+  # Fill this in.
+
+print sortNums([3, 3, 2, 1, 3, 2, 1])
+# [1, 1, 2, 2, 3, 3, 3]
+
+Challenge: Try sorting the list using constant space.
+
+
+# Problem 8
+Hi, here's your problem today. This problem was recently asked by Facebook:
+
+You are given a list of numbers, and a target number k. Return whether or not there are two numbers in the list that add up to k.
+
+Example:
+Given [4, 7, 1 , -3, 2] and k = 5, 
+return true since 4 + 1 = 5.
+def two_sum(list, k):
+  # Fill this in.
+
+print two_sum([4,7,1,-3,2], 5)
+# True
+
+Try to do it in a single pass of the list.
+
+# Problem 9
+Hi, here's your problem today. This problem was recently asked by Facebook:
+
+Given a list of numbers, where every number shows up twice except for one number, find that one number.
+
+Example:
+Input: [4, 3, 2, 4, 1, 3, 2]
+Output: 1
+Here's the function signature:
+def singleNumber(nums):
+  # Fill this in.
+
+print singleNumber([4, 3, 2, 4, 1, 3, 2])
+# 1
+
+Challenge: Find a way to do this using O(1) memory.
+
+# Problem 10
+Hi, here's your problem today. This problem was recently asked by Microsoft:
+
+You are given an array of integers in an arbitrary order. Return whether or not it is possible to make the array non-decreasing by modifying at most 1 element to any value.
+
+We define an array is non-decreasing if array[i] <= array[i + 1] holds for every i (1 <= i < n).
+
+Example:
+
+[13, 4, 7] should return true, since we can modify 13 to any value 4 or less, to make it non-decreasing.
+
+[13, 4, 1] however, should return false, since there is no way to modify just one element to make the array non-decreasing.
+
+Here is the function signature:
+def check(lst):
+  # Fill this in.
+
+print check([13, 4, 7])
+# True
+print check([5,1,3,2,5])
+# False
+
+Can you find a solution in O(n) time?
+
+# Problem 11
+Hi, here's your problem today. This problem was recently asked by Apple:
+
+Given an integer k and a binary search tree, find the floor (less than or equal to) of k, and the ceiling (larger than or equal to) of k. If either does not exist, then print them as None.
+
+Here is the definition of a node for the tree.
+class Node:
+  def __init__(self, value):
+    self.left = None
+    self.right = None
+    self.value = value
+
+def findCeilingFloor(root_node, k, floor=None, ceil=None):
+  # Fill this in.
+
+root = Node(8) 
+root.left = Node(4) 
+root.right = Node(12) 
+  
+root.left.left = Node(2) 
+root.left.right = Node(6) 
+  
+root.right.left = Node(10) 
+root.right.right = Node(14) 
+
+print findCeilingFloor(root, 5)
+# (4, 6)
+
+
+# Problem 12
+Hi, here's your problem today. This problem was recently asked by Twitter:
+
+You are given the root of a binary tree. Invert the binary tree in place. That is, all left children should become right children, and all right children should become left children.
+
+Example:
+    a
+   / \
+  b   c
+ / \  /
+d   e f
+
+The inverted version of this tree is as follows:
+  a
+ / \
+ c  b
+ \  / \
+  f e  d
+
+Here is the function signature:
+class Node:
+  def __init__(self, value):
+    self.left = None
+    self.right = None
+    self.value = value
+  def preorder(self):
+    print self.value,
+    if self.left: self.left.preorder()
+    if self.right: self.right.preorder()
+
+def invert(node):
+  # Fill this in.
+
+root = Node('a') 
+root.left = Node('b') 
+root.right = Node('c') 
+root.left.left = Node('d') 
+root.left.right = Node('e') 
+root.right.left = Node('f') 
+
+root.preorder()
+# a b d e c f 
+print "\n"
+invert(root)
+root.preorder()
+# a c f b e d
+
+# Problem 13
+Hi, here's your problem today. This problem was recently asked by Twitter:
+
+Implement a class for a stack that supports all the regular functions (push, pop) and an additional function of max() which returns the maximum element in the stack (return None if the stack is empty). Each method should run in constant time.
+class MaxStack:
+  def __init__(self):
+    # Fill this in.
+
+  def push(self, val):
+    # Fill this in.
+
+  def pop(self):
+    # Fill this in.
+
+  def max(self):
+    # Fill this in.
+
+s = MaxStack()
+s.push(1)
+s.push(2)
+s.push(3)
+s.push(2)
+print s.max()
+# 3
+s.pop()
+s.pop()
+print s.max()
+# 2
+
+
+# Problem 14
+Hi, here's your problem today. This problem was recently asked by LinkedIn:
+
+You are given a positive integer N which represents the number of steps in a staircase. You can either climb 1 or 2 steps at a time. Write a function that returns the number of unique ways to climb the stairs.
+def staircase(n):
+  # Fill this in.
+  
+print staircase(4)
+# 5
+print staircase(5)
+# 8
+
+Can you find a solution in O(n) time?
+
+# Problem 15
+Hi, here's your problem today. This problem was recently asked by Uber:
+
+Given a list of numbers, find if there exists a pythagorean triplet in that list. A pythagorean triplet is 3 variables a, b, c where a^2 + b^2 = c^2
+
+Example:
+Input: [3, 5, 12, 5, 13]
+Output: True
+Here, 5^2 + 12^2 = 13^2.
+def findPythagoreanTriplets(nums):
+  # Fill this in.
+
+print findPythagoreanTriplets([3, 12, 5, 13])
+# True
+
+# Problem 16
+Hi, here's your problem today. This problem was recently asked by AirBNB:
+
+Given two strings, determine the edit distance between them. The edit distance is defined as the minimum number of edits (insertion, deletion, or substitution) needed to change one string to the other.
+
+For example, "biting" and "sitting" have an edit distance of 2 (substitute b for s, and insert a t).
+
+Here's the signature:
+def distance(s1, s2):
+  # Fill this in.
+         
+print distance('biting', 'sitting')
+# 2
+
+# Problem 17
+Hi, here's your problem today. This problem was recently asked by Google:
+
+Given a mathematical expression with just single digits, plus signs, negative signs, and brackets, evaluate the expression. Assume the expression is properly formed.
+
+Example:
+Input: - ( 3 + ( 2 - 1 ) )
+Output: -4
+Here's the function signature:
+def eval(expression):
+  # Fill this in.
+
+print eval('- (3 + ( 2 - 1 ) )')
+# -4
+
+# Problem 18
+Hi, here's your problem today. This problem was recently asked by Facebook:
+
+Given a sequence of numbers, find the longest sequence that contains only 2 unique numbers.
+
+Example:
+Input: [1, 3, 5, 3, 1, 3, 1, 5]
+Output: 4
+The longest sequence that contains just 2 unique numbers is [3, 1, 3, 1]
+
+Here's the solution signature:
+def findSequence(seq):
+  # Fill this in.
+
+print findSequence([1, 3, 5, 3, 1, 3, 1, 5])
+# 4
+
+# Problem 19
+Hi, here's your problem today. This problem was recently asked by Facebook:
+
+Given an undirected graph, determine if a cycle exists in the graph.
+
+Here is a function signature:
+def find_cycle(graph):
+  # Fill this in.
+
+graph = {
+  'a': {'a2':{}, 'a3':{} },
+  'b': {'b2':{}},
+  'c': {}
+}
+print find_cycle(graph)
+# False
+graph['c'] = graph
+print find_cycle(graph)
+# True
+
+Can you solve this in linear time, linear space?
+
+# Problem 20
+Hi, here's your problem today. This problem was recently asked by Amazon:
+
+You are given a 2D array of characters, and a target string. Return whether or not the word target word exists in the matrix. Unlike a standard word search, the word must be either going left-to-right, or top-to-bottom in the matrix.
+
+Example:
+[['F', 'A', 'C', 'I'],
+ ['O', 'B', 'Q', 'P'],
+ ['A', 'N', 'O', 'B'],
+ ['M', 'A', 'S', 'S']]
+
+Given this matrix, and the target word FOAM, you should return true, as it can be found going up-to-down in the first column.
+
+Here's the function signature:
+def word_search(matrix, word):
+  # Fill this in.
+  
+matrix = [
+  ['F', 'A', 'C', 'I'],
+  ['O', 'B', 'Q', 'P'],
+  ['A', 'N', 'O', 'B'],
+  ['M', 'A', 'S', 'S']]
+print word_search(matrix, 'FOAM')
+# True
+
+# Problem 21
+Hi, here's your problem today. This problem was recently asked by Amazon:
+
+Given an array of n positive integers and a positive integer s, find the minimal length of a contiguous subarray of which the sum â‰Ą s. If there isn't one, return 0 instead.
+
+Example:
+Input: s = 7, nums = [2,3,1,2,4,3]
+Output: 2
+Explanation: the subarray [4,3] has the minimal length under the problem constraint.
+
+Here is the method signature:
+class Solution:
+  def minSubArrayLen(self, nums, s):
+    # Fill this in
+
+print Solution().minSubArrayLen([2, 3, 1, 2, 4, 3], 7)
+# 2
+
+# Problem 22
+Hi, here's your problem today. This problem was recently asked by Microsoft:
+
+You 2 integers n and m representing an n by m grid, determine the number of ways you can get from the top-left to the bottom-right of the matrix y going only right or down.
+
+Example:
+n = 2, m = 2
+
+This should return 2, since the only possible routes are:
+Right, down
+Down, right.
+
+Here's the signature:
+def num_ways(n, m):
+  # Fill this in.
+
+print num_ways(2, 2)
+# 2
+
+# Problem 23
+Hi, here's your problem today. This problem was recently asked by Apple:
+
+You are given two singly linked lists. The lists intersect at some node. Find, and return the node. Note: the lists are non-cyclical.
+
+Example:
+
+A = 1 -> 2 -> 3 -> 4
+B = 6 -> 3 -> 4 
+
+This should return 3 (you may assume that any nodes with the same value are the same node).
+
+Here is a starting point:
+def intersection(a, b):
+  # fill this in.
+
+class Node(object):
+  def __init__(self, val):
+    self.val = val
+    self.next = None
+  def prettyPrint(self):
+    c = self
+    while c:
+      print c.val,
+      c = c.next
+
+a = Node(1)
+a.next = Node(2)
+a.next.next = Node(3)
+a.next.next.next = Node(4)
+
+b = Node(6)
+b.next = a.next.next
+
+c = intersection(a, b)
+c.prettyPrint()
+# 3 4
+
+# Problem 24
+Hi, here's your problem today. This problem was recently asked by Twitter:
+
+Given a string with the initial condition of dominoes, where:
+
+. represents that the domino is standing still
+L represents that the domino is falling to the left side
+R represents that the domino is falling to the right side
+
+Figure out the final position of the dominoes. If there are dominoes that get pushed on both ends, the force cancels out and that domino remains upright.
+
+Example:
+Input:  ..R...L..R.
+Output: ..RR.LL..RR
+Here is your starting point:
+class Solution(object):
+  def pushDominoes(self, dominoes):
+    # Fill this in.
+
+print Solution().pushDominoes('..R...L..R.')
+# ..RR.LL..RR
+
+# Problem 25
+Hi, here's your problem today. This problem was recently asked by Uber:
+
+Given a linked list of integers, remove all consecutive nodes that sum up to 0.
+
+Example:
+Input: 10 -> 5 -> -3 -> -3 -> 1 -> 4 -> -4
+Output: 10
+
+The consecutive nodes 5 -> -3 -> -3 -> 1 sums up to 0 so that sequence should be removed. 4 -> -4 also sums up to 0 too so that sequence should also be removed.
+
+Here's a starting point:
+class Node:
+  def __init__(self, value, next=None):
+    self.value = value
+    self.next = next
+
+def removeConsecutiveSumTo0(node):
+  # Fill this in.
+
+node = Node(10)
+node.next = Node(5)
+node.next.next = Node(-3)
+node.next.next.next = Node(-3)
+node.next.next.next.next = Node(1)
+node.next.next.next.next.next = Node(4)
+node.next.next.next.next.next.next = Node(-4)
+node = removeConsecutiveSumTo0(node)
+while node:
+  print node.value,
+  node = node.next
+# 10
+
+# Problem 26
+Hi, here's your problem today. This problem was recently asked by AirBNB:
+
+You are given a singly linked list and an integer k. Return the linked list, removing the k-th last element from the list. 
+
+Try to do it in a single pass and using constant space.
+
+Here's a starting point:
+class Node:
+  def __init__(self, val, next=None):
+    self.val = val
+    self.next = next
+  def __str__(self):
+    current_node = self
+    result = []
+    while current_node:
+      result.append(current_node.val)
+      current_node = current_node.next
+    return str(result)
+
+def remove_kth_from_linked_list(head, k):
+  # Fill this in
+
+head = Node(1, Node(2, Node(3, Node(4, Node(5)))))
+print(head)
+# [1, 2, 3, 4, 5]
+head = remove_kth_from_linked_list(head, 3)
+print(head)
+# [1, 2, 4, 5]
+
+# Problem 27
+Hi, here's your problem today. This problem was recently asked by Google:
+
+You are given a hash table where the key is a course code, and the value is a list of all the course codes that are prerequisites for the key. Return a valid ordering in which we can complete the courses. If no such ordering exists, return NULL.
+
+Example:
+{
+  'CSC300': ['CSC100', 'CSC200'], 
+  'CSC200': ['CSC100'], 
+  'CSC100': []
+}
+
+This input should return the order that we need to take these courses: 
+ ['CSC100', 'CSC200', 'CSCS300']
+
+Here's your starting point:
+def courses_to_take(course_to_prereqs):
+  # Fill this in.
+
+courses = {
+  'CSC300': ['CSC100', 'CSC200'], 
+  'CSC200': ['CSC100'], 
+  'CSC100': []
+}
+print courses_to_take(courses)
+# ['CSC100', 'CSC200', 'CSC300']
+
+# Problem 28
+Hi, here's your problem today. This problem was recently asked by Google:
+
+There are n people lined up, and each have a height represented as an integer. A murder has happened right in front of them, and only people who are taller than everyone in front of them are able to see what has happened. How many witnesses are there?
+
+Example:
+Input: [3, 6, 3, 4, 1]  
+Output: 3
+Explanation: Only [6, 4, 1] were able to see in front of them.
+ #
+ #
+ # #
+####
+####
+#####
+36341                                 x (murder scene)
+Here's your starting point:
+def witnesses(heights):
+  # Fill this in.
+
+print witnesses([3, 6, 3, 4, 1])
+# 3
+
+# Problema 29
+Hi, here's your problem today. This problem was recently asked by Facebook:
+
+Given an array nums, write a function to move all 0's to the end of it while maintaining the relative order of the non-zero elements.
+
+Example:
+Input: [0,1,0,3,12]
+Output: [1,3,12,0,0]
+You must do this in-place without making a copy of the array.
+Minimize the total number of operations.
+
+Here is a starting point:
+class Solution:
+  def moveZeros(self, nums):
+    # Fill this in.
+
+nums = [0, 0, 0, 2, 0, 1, 3, 4, 0, 0]
+Solution().moveZeros(nums)
+print(nums)
+# [2, 1, 3, 4, 0, 0, 0, 0, 0, 0]
+
+# Problema 30
+Hi, here's your problem today. This problem was recently asked by Facebook:
+
+Given a list, find the k-th largest element in the list.
+Input: list = [3, 5, 2, 4, 6, 8], k = 3
+Output: 5
+Here is a starting point:
+def findKthLargest(nums, k):
+  # Fill this in.
+
+print findKthLargest([3, 5, 2, 4, 6, 8], 3)
+# 5
+
+# Problema 31
+Hi, here's your problem today. This problem was recently asked by Amazon:
+
+You are given a 2D array of integers. Print out the clockwise spiral traversal of the matrix.
+
+Example:
+grid = [[1,  2,  3,  4,  5],
+        [6,  7,  8,  9,  10],
+        [11, 12, 13, 14, 15],
+        [16, 17, 18, 19, 20]]
+
+The clockwise spiral traversal of this array is:
+
+1, 2, 3, 4, 5, 10, 15, 20, 19, 18, 17, 16, 11, 6, 7, 8, 9, 14, 13, 12
+
+Here is a starting point:
+def matrix_spiral_print(M):
+  # Fill this in.
+
+grid = [[1,  2,  3,  4,  5],
+        [6,  7,  8,  9,  10],
+        [11, 12, 13, 14, 15],
+        [16, 17, 18, 19, 20]]
+
+matrix_spiral_print(grid)
+# 1 2 3 4 5 10 15 20 19 18 17 16 11 6 7 8 9 14 13 12
+
+# Problema 32
+Hi, here's your problem today. This problem was recently asked by Microsoft:
+
+You are given an array of integers. Return the largest product that can be made by multiplying any 3 integers in the array.
+
+Example:
+
+[-4, -4, 2, 8] should return 128 as the largest product can be made by multiplying -4 * -4 * 8 = 128.
+
+Here's a starting point:
+def maximum_product_of_three(lst):
+  # Fill this in.
+
+print maximum_product_of_three([-4, -4, 2, 8])
+# 128
+
+# Problema 33
+Hi, here's your problem today. This problem was recently asked by Microsoft:
+
+You are given an array of intervals - that is, an array of tuples (start, end). The array may not be sorted, and could contain overlapping intervals. Return another array where the overlapping intervals are merged.
+
+For example:
+[(1, 3), (5, 8), (4, 10), (20, 25)]
+
+This input should return [(1, 3), (4, 10), (20, 25)] since (5, 8) and (4, 10) can be merged into (4, 10).
+
+Here's a starting point:
+def merge(intervals):
+  # Fill this in.
+  
+print merge([(1, 3), (5, 8), (4, 10), (20, 25)])
+# [(1, 3), (4, 10), (20, 25)]
+
+# Problema 34
+Hi, here's your problem today. This problem was recently asked by Apple:
+
+You are given an array. Each element represents the price of a stock on that particular day. Calculate and return the maximum profit you can make from buying and selling that stock only once.
+
+For example: [9, 11, 8, 5, 7, 10]
+
+Here, the optimal trade is to buy when the price is 5, and sell when it is 10, so the return value should be 5 (profit = 10 - 5 = 5).
+
+Here's your starting point:
+def buy_and_sell(arr):
+  #Fill this in.
+  
+print buy_and_sell([9, 11, 8, 5, 7, 10])
+# 5
+
+# Problema 35
+Hi, here's your problem today. This problem was recently asked by Apple:
+
+Implement a queue class using two stacks. A queue is a data structure that supports the FIFO protocol (First in = first out). Your class should support the enqueue and dequeue methods like a standard queue.
+
+Here's a starting point:
+class Queue:
+  def __init__(self):
+    # Fill this in.
+    
+  def enqueue(self, val):
+    # Fill this in.
+
+  def dequeue(self):
+    # Fill this in.
+
+q = Queue()
+q.enqueue(1)
+q.enqueue(2)
+q.enqueue(3)
+print q.dequeue()
+print q.dequeue()
+print q.dequeue()
+# 1 2 3
+
+# Problema 36
+Hi, here's your problem today. This problem was recently asked by Twitter:
+
+You are given an array of integers. Find the maximum sum of all possible contiguous subarrays of the array.
+
+Example:
+
+[34, -50, 42, 14, -5, 86]
+
+Given this input array, the output should be 137. The contiguous subarray with the largest sum is [42, 14, -5, 86].
+
+Your solution should run in linear time.
+
+Here's a starting point:
+def max_subarray_sum(arr):
+  # Fill this in.
+
+print max_subarray_sum([34, -50, 42, 14, -5, 86])
+# 137
+
+# Problema 37
+Hi, here's your problem today. This problem was recently asked by Twitter:
+
+You are given an array of k sorted singly linked lists. Merge the linked lists into a single sorted linked list and return it.
+
+Here's your starting point:
+class Node(object):
+  def __init__(self, val, next=None):
+    self.val = val
+    self.next = next
+
+  def __str__(self):
+    c = self
+    answer = ""
+    while c:
+      answer += str(c.val) if c.val else ""
+      c = c.next
+    return answer
+
+def merge(lists):
+  # Fill this in.
+
+a = Node(1, Node(3, Node(5)))
+b = Node(2, Node(4, Node(6)))
+print merge([a, b])
+# 123456
+
+# Problema 38
+Hi, here's your problem today. This problem was recently asked by LinkedIn:
+
+Given a sorted list of numbers, change it into a balanced binary search tree. You can assume there will be no duplicate numbers in the list.
+
+Here's a starting point:
+from collections import deque
+
+class Node:
+  def __init__(self, value, left=None, right=None):
+    self.value = value
+    self.left = left
+    self.right = right
+
+  def __str__(self):
+    # level-by-level pretty-printer
+    nodes = deque([self])
+    answer = ''
+    while len(nodes):
+      node = nodes.popleft()
+      if not node:
+        continue
+      answer += str(node.value)
+      nodes.append(node.left)
+      nodes.append(node.right)
+    return answer
+
+
+def createBalancedBST(nums):
+  # Fill this in.
+
+print createBalancedBST([1, 2, 3, 4, 5, 6, 7])
+# 4261357
+#   4
+#  / \
+# 2   6
+#/ \ / \
+#1 3 5 7
+
+# Problema 39
+Hi, here's your problem today. This problem was recently asked by Uber:
+
+You have a landscape, in which puddles can form. You are given an array of non-negative integers representing the elevation at each location. Return the amount of water that would accumulate if it rains.
+
+For example: [0,1,0,2,1,0,1,3,2,1,2,1] should return 6 because 6 units of water can get trapped here.
+       X               
+   Xâ–â–â–XXâ–X              
+ Xâ–XXâ–XXXXXX                   
+# [0,1,0,2,1,0,1,3,2,1,2,1]
+Here's your starting pont:
+def capacity(arr):
+  # Fill this in.
+
+print capacity([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1])
+# 6
+
+# Problema 40
+Hi, here's your problem today. This problem was recently asked by AirBNB:
+
+Given two strings A and B of lowercase letters, return true if and only if we can swap two letters in A so that the result equals B.
+
+Example 1:
+Input: A = "ab", B = "ba"
+Output: true
+Example 2:
+Input: A = "ab", B = "ab"
+Output: false
+Example 3:
+Input: A = "aa", B = "aa"
+Output: true
+Example 4:
+Input: A = "aaaaaaabc", B = "aaaaaaacb"
+Output: true
+Example 5:
+Input: A = "", B = "aa"
+Output: false
+Here's a starting point:
+class Solution:
+  def buddyStrings(self, A, B):
+    # Fill this in.
+
+print Solution().buddyStrings('aaaaaaabc', 'aaaaaaacb')
+# True
+print Solution().buddyStrings('aaaaaabbc', 'aaaaaaacb')
+# False
+
+
+# Problema 41
+Hi, here's your problem today. This problem was recently asked by Google:
+
+You are given the root of a binary tree. Return the deepest node (the furthest node from the root).
+
+Example:
+    a
+   / \
+  b   c
+ /
+d
+
+The deepest node in this tree is d at depth 3.
+
+Here's a starting point:
+class Node(object):
+  def __init__(self, val):
+    self.val = val
+    self.left = None
+    self.right = None
+
+  def __repr__(self):
+    # string representation
+    return self.val
+
+
+def deepest(node):
+  # Fill this in.
+
+root = Node('a')
+root.left = Node('b')
+root.left.left = Node('d')
+root.right = Node('c')
+
+print deepest(root)
+# (d, 3)
+
+# Problema 42
+Hi, here's your problem today. This problem was recently asked by Google:
+
+A look-and-say sequence is defined as the integer sequence beginning with a single digit in which the next term is obtained by describing the previous term. An example is easier to understand:
+
+Each consecutive value describes the prior value.
+1      #
+11     # one 1's
+21     # two 1's
+1211   # one 2, and one 1.
+111221 # #one 1, one 2, and two 1's.
+
+Your task is, return the nth term of this sequence.
+
+# Problema 43
+Hi, here's your problem today. This problem was recently asked by Facebook:
+
+You are given the root of a binary search tree. Return true if it is a valid binary search tree, and false otherwise. Recall that a binary search tree has the property that all values in the left subtree are less than or equal to the root, and all values in the right subtree are greater than or equal to the root.
+
+Here's a starting point:
+class TreeNode:
+  def __init__(self, key):
+    self.left = None
+    self.right = None
+    self.key = key
+
+def is_bst(root):
+  # Fill this in.
+
+a = TreeNode(5)
+a.left = TreeNode(3)
+a.right = TreeNode(7)
+a.left.left = TreeNode(1)
+a.left.right = TreeNode(4)
+a.right.left = TreeNode(6)
+print is_bst(a)
+
+#    5
+#   / \
+#  3   7
+# / \ /
+#1  4 6
+
+# Problema 44
+Hi, here's your problem today. This problem was recently asked by Facebook:
+
+You are given an array of integers. Return the smallest positive integer that is not present in the array. The array may contain duplicate entries.
+
+For example, the input [3, 4, -1, 1] should return 2 because it is the smallest positive integer that doesn't exist in the array.
+
+Your solution should run in linear time and use constant space.
+
+Here's your starting point:
+def first_missing_positive(nums):
+  # Fill this in.
+
+print first_missing_positive([3, 4, -1, 1])
+# 2
+
+# Problema 45
+Hi, here's your problem today. This problem was recently asked by Amazon:
+
+Given a binary tree, return all values given a certain height h.
+
+Here's a starting point:
+class Node():
+  def __init__(self, value, left=None, right=None):
+    self.value = value
+    self.left = left
+    self.right = right
+
+def valuesAtHeight(root, height):
+  # Fill this in.
+
+#     1
+#    / \
+#   2   3
+#  / \   \
+# 4   5   7
+z
+a = Node(1)
+a.left = Node(2)
+a.right = Node(3)
+a.left.left = Node(4)
+a.left.right = Node(5)
+a.right.right = Node(7)
+print valuesAtHeight(a, 3)
+# [4, 5, 7]
+
+
+# Problema 46
+Hi, here's your problem today. This problem was recently asked by Amazon:
+
+You are given a string s, and an integer k. Return the length of the longest substring in s that contains at most k distinct characters.
+
+For instance, given the string:
+aabcdefff and k = 3, then the longest substring with 3 distinct characters would be defff. The answer should be 5.
+
+Here's a starting point:
+def longest_substring_with_k_distinct_characters(s, k):
+  # Fill this in.
+
+print longest_substring_with_k_distinct_characters('aabcdefff', 3)
+# 5 (because 'defff' has length 5 with 3 characters)
+
+
+# Problema 47
+Hi, here's your problem today. This problem was recently asked by Microsoft:
+
+A unival tree is a tree where all the nodes have the same value. Given a binary tree, return the number of unival subtrees in the tree.
+
+For example, the following tree should return 5:
+   0
+  / \
+ 1   0
+    / \
+   1   0
+  / \
+ 1   1
+
+The 5 trees are:
+- The three single '1' leaf nodes. (+3)
+- The single '0' leaf node. (+1)
+- The [1, 1, 1] tree at the bottom. (+1)
+
+Here's a starting point:
+class Node(object):
+  def __init__(self, val):
+    self.val = val
+    self.left = None
+    self.right = None
+
+def count_unival_subtrees(root):
+  # Fill this in.
+
+a = Node(0)
+a.left = Node(1)
+a.right = Node(0)
+a.right.left = Node(1)
+a.right.right = Node(0)
+a.right.left.left = Node(1)
+a.right.left.right = Node(1)
+
+print count_unival_subtrees(a)
+# 5
+
+
+# Problema 48
+Hi, here's your problem today. This problem was recently asked by Microsoft:
+
+You are given the preorder and inorder traversals of a binary tree in the form of arrays. Write a function that reconstructs the tree represented by these traversals.
+
+Example:
+Preorder: [a, b, d, e, c, f, g]
+Inorder: [d, b, e, a, f, c, g]
+
+The tree that should be constructed from these traversals is:
+    a
+   / \
+  b   c
+ / \ / \
+d  e f  g
+
+Here's a start:
+from collections import deque
+
+class Node(object):
+  def __init__(self, val):
+    self.val = val
+    self.left = None
+    self.right = None
+
+  def __str__(self):
+    q = deque()
+    q.append(self)
+    result = ''
+    while len(q):
+      n = q.popleft()
+      result += n.val
+      if n.left:
+        q.append(n.left)
+      if n.right:
+        q.append(n.right)
+
+    return result
+
+
+def reconstruct(preorder, inorder):
+  # Fill this in.
+
+tree = reconstruct(['a', 'b', 'd', 'e', 'c', 'f', 'g'],
+                   ['d', 'b', 'e', 'a', 'f', 'c', 'g'])
+print tree
+# abcdefg
+
+# Problema 49
+Hi, here's your problem today. This problem was recently asked by Apple:
+
+Given an array with n objects colored red, white or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white and blue.
+
+Here, we will use the integers 0, 1, and 2 to represent the color red, white, and blue respectively.
+
+Note: You are not suppose to use the libraries to sort function for this problem.
+
+Can you do this in a single pass?
+
+Example:
+Input: [2,0,2,1,1,0]
+Output: [0,0,1,1,2,2]
+Here's a starting point:
+class Solution:
+  def sortColors(self, nums):
+    # Fill this in.
+
+nums = [0, 1, 2, 2, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1]
+print("Before Sort: ")
+print(nums)
+# [0, 1, 2, 2, 1, 1, 2, 2, 0, 0, 0, 0, 2, 1]
+
+Solution().sortColors(nums)
+print("After Sort: ")
+print(nums)
+# [0, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 2]
+
+
+# Problema 50
+Hi, here's your problem today. This problem was recently asked by Twitter:
+
+Given an array, nums, of n integers, find all unique triplets (three numbers, a, b, & c) in nums such that a + b + c = 0. Note that there may not be any triplets that sum to zero in nums, and that the triplets must not be duplicates.
+
+Example: 
+Input: nums = [0, -1, 2, -3, 1]
+Output: [0, -1, 1], [2, -3, 1]
+Here's a starting point:
+class Solution(object):
+  def threeSum(self, nums):
+    # Fill this in.
+
+# Test Program
+nums = [1, -2, 1, 0, 5]
+print(Solution().threeSum(nums))
+# [[-2, 1, 1]]
+
+
+
+
+# Problema 51
+Hi, here's your problem today. This problem was recently asked by Twitter:
+
+You are given the root of a binary tree. Find and return the largest subtree of that tree, which is a valid binary search tree.
+
+Here's a starting point:
+class TreeNode:
+  def __init__(self, key):
+    self.left = None
+    self.right = None
+    self.key = key
+
+  def __str__(self):
+    # preorder traversal
+    answer = str(self.key)
+    if self.left:
+      answer += str(self.left)
+    if self.right:
+      answer += str(self.right)
+    return answer
+
+def largest_bst_subtree(root):
+  # Fill this in.
+
+#     5
+#    / \
+#   6   7
+#  /   / \
+# 2   4   9
+node = TreeNode(5)
+node.left = TreeNode(6)
+node.right = TreeNode(7)
+node.left.left = TreeNode(2)
+node.right.left = TreeNode(4)
+node.right.right = TreeNode(9)
+print largest_bst_subtree(node)
+#749
+
+
+# Problema 52
+Hi, here's your problem today. This problem was recently asked by Apple:
+
+Given a list of words, and an arbitrary alphabetical order, verify that the words are in order of the alphabetical order.
+
+Example:
+Input:
+words = ["abcd", "efgh"], order="zyxwvutsrqponmlkjihgfedcba"
+
+Output: False
+Explanation: 'e' comes before 'a' so 'efgh' should come before 'abcd'
+
+Example 2:
+Input:
+words = ["zyx", "zyxw", "zyxwy"],
+order="zyxwvutsrqponmlkjihgfedcba"
+
+Output: True
+Explanation: The words are in increasing alphabetical order
+
+Here's a starting point:
+def isSorted(words, order):
+  # Fill this in.
+
+print isSorted(["abcd", "efgh"], "zyxwvutsrqponmlkjihgfedcba")
+# False
+print isSorted(["zyx", "zyxw", "zyxwy"],
+               "zyxwvutsrqponmlkjihgfedcba")
+# True
+
+# Problema 53
+Hi, here's your problem today. This problem was recently asked by LinkedIn:
+
+Given a 2-dimensional grid consisting of 1's (land blocks) and 0's (water blocks), count the number of islands present in the grid. The definition of an island is as follows:
+1.) Must be surrounded by water blocks.
+2.) Consists of land blocks (1's) connected to adjacent land blocks (either vertically or horizontally). 
+Assume all edges outside of the grid are water.
+
+Example: 
+Input: 
+10001
+11000
+10110
+00000
+
+Output: 3
+Here's your starting point:
+class Solution(object):
+  def inRange(self, grid, r, c):
+    numRow, numCol = len(grid), len(grid[0])
+    if r < 0 or c < 0 or r >= numRow or c >= numCol:
+      return False
+    return True
+
+  def numIslands(self, grid):
+    # Fill this in.
+
+grid = [[1, 1, 0, 0, 0],
+        [0, 1, 0, 0, 1],
+        [1, 0, 0, 1, 1],
+        [0, 0, 0, 0, 0]]
+print(Solution().numIslands(grid))
+# 3
+
+
+# Problema 54
+Hi, here's your problem today. This problem was recently asked by AirBNB:
+
+Given a list of words, group the words that are anagrams of each other. (An anagram are words made up of the same letters).
+
+Example:
+
+Input: ['abc', 'bcd', 'cba', 'cbd', 'efg']
+Output: [['abc', 'cba'], ['bcd', 'cbd'], ['efg']]
+
+Here's a starting point:
+import collections
+
+def groupAnagramWords(strs):
+  # Fill this in.
+
+print groupAnagramWords(['abc', 'bcd', 'cba', 'cbd', 'efg'])
+# [['efg'], ['bcd', 'cbd'], ['abc', 'cba']]
+
+
+# Problema 55
+Hi, here's your problem today. This problem was recently asked by Uber:
+
+You are given a string of parenthesis. Return the minimum number of parenthesis that would need to be removed in order to make the string valid. "Valid" means that each open parenthesis has a matching closed parenthesis.
+
+Example:
+
+"()())()"
+
+The following input should return 1.
+
+")("
+
+Here's a start:
+def count_invalid_parenthesis(string):
+  # Fill this in.
+
+print count_invalid_parenthesis("()())()")
+# 1
+
+# Problema 56
+Hi, here's your problem today. This problem was recently asked by Google:
+
+You are given a stream of numbers. Compute the median for each new element .
+
+Eg. Given [2, 1, 4, 7, 2, 0, 5], the algorithm should output [2, 1.5, 2, 3.0, 2, 2, 2]
+
+Here's a starting point:
+def running_median(stream):
+  # Fill this in.
+
+running_median([2, 1, 4, 7, 2, 0, 5])
+# 2 1.5 2 3.0 2 2.0 2
+
+# Problema 57
+Hi, here's your problem today. This problem was recently asked by Google:
+
+You are given an array of tuples (start, end) representing time intervals for lectures. The intervals may be overlapping. Return the number of rooms that are required.
+
+For example. [(30, 75), (0, 50), (60, 150)] should return 2.
+
+Upgrade to PRO and get in-depth solutions to every problem from ex-Google and ex-Facebook engineers TechLead and Joma.
+
+
+
+# Problema 58
+Hi, here's your problem today. This problem was recently asked by Facebook:
+
+Given a string, you need to reverse the order of characters in each word within a sentence while still preserving whitespace and initial word order.
+
+Example 1:
+Input: "The cat in the hat"
+Output: "ehT tac ni eht tah"
+Note: In the string, each word is separated by single space and there will not be any extra space in the string.
+
+Here's a starting point:
+class Solution:
+  def reverseWords(self, str):
+    # Fill this in.
+
+print Solution().reverseWords("The cat in the hat")
+# ehT tac ni eht tah
+
+# Problema 59
+Hi, here's your problem today. This problem was recently asked by Google:
+
+You are given an array of tuples (start, end) representing time intervals for lectures. The intervals may be overlapping. Return the number of rooms that are required.
+
+For example. [(30, 75), (0, 50), (60, 150)] should return 2.
+
+
+# Problema 60
+Hi, here's your problem today. This problem was recently asked by Facebook:
+
+Given a sorted list of numbers, return a list of strings that represent all of the consecutive numbers.
+
+Example:
+Input: [0, 1, 2, 5, 7, 8, 9, 9, 10, 11, 15]
+Output: ['0->2', '5->5', '7->11', '15->15']
+Assume that all numbers will be greater than or equal to 0, and each element can repeat.
+
+Here is a starting point:
+def findRanges(nums):
+  # Fill this in.
+
+print findRanges([0, 1, 2, 5, 7, 8, 9, 9, 10, 11, 15])
+# ['0->2', '5->5', '7->11', '15->15']
+
+# Problema 61
+Hi, here's your problem today. This problem was recently asked by Amazon:
+
+You are given an array of integers. Return an array of the same size where the element at each index is the product of all the elements in the original array except for the element at that index.
+
+For example, an input of [1, 2, 3, 4, 5] should return [120, 60, 40, 30, 24].
+
+You cannot use division in this problem.
+
+Here's a start:
+def products(nums):
+  # Fill this in.
+
+print products([1, 2, 3, 4, 5])
+# [120, 60, 40, 30, 24]
+
+# Problema 62
+Hi, here's your problem today. This problem was recently asked by Amazon:
+
+Given two arrays, write a function to compute their intersection - the intersection means the numbers that are in both arrays.
+
+Example 1:
+Input: nums1 = [1,2,2,1], nums2 = [2,2]
+Output: [2]
+Example 2:
+Input: nums1 = [4,9,5], nums2 = [9,4,9,8,4]
+Output: [9,4]
+Note:
+Each element in the result must be unique.
+The result can be in any order.
+
+Here's a starting point:
+class Solution:
+  def intersection(self, nums1, nums2):
+    # Fill this in.
+
+print Solution().intersection([4, 9, 5], [9, 4, 9, 8, 4])
+# [9, 4]
+
+
+# Problema 63
+Hi, here's your problem today. This problem was recently asked by Microsoft:
+
+You are given an array of integers. Return the length of the longest increasing subsequence (not necessarily contiguous) in the array. 
+
+Example:
+[0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15]
+
+The following input should return 6 since the longest increasing subsequence is 0, 2, 6, 9 , 11, 15.
+
+# Problema 64
+Hi, here's your problem today. This problem was recently asked by Microsoft:
+
+Given a time in the format of hour and minute, calculate the angle of the hour and minute hand on a clock.
+def calcAngle(h, m):
+  # Fill this in.
+
+print calcAngle(3, 30)
+# 75
+print calcAngle(12, 30)
+# 165
+
+
+# Problema 64
+Hi, here's your problem today. This problem was recently asked by Apple:
+
+You are given a binary tree representation of an arithmetic expression. In this tree, each leaf is an integer value,, and a non-leaf node is one of the four operations: '+', '-', '*', or '/'.
+
+Write a function that takes this tree and evaluates the expression.
+
+Example:
+    *
+   / \
+  +    +
+ / \  / \
+3  2  4  5
+
+This is a representation of the expression (3 + 2) * (4 + 5), and should return 45.
+
+Here's a starting point:
+class Node:
+  def __init__(self, val, left=None, right=None):
+    self.val = val
+    self.left = left
+    self.right = right
+
+PLUS = "+"
+MINUS = "-"
+TIMES = "*"
+DIVIDE = "/"
+
+def evaluate(root):
+  # Fill this in.
+
+tree = Node(TIMES)
+tree.left = Node(PLUS)
+tree.left.left = Node(3)
+tree.left.right = Node(2)
+tree.right = Node(PLUS)
+tree.right.left = Node(4)
+tree.right.right = Node(5)
+print evaluate(tree)
+# 45
+
+# Problema 65
+Hi, here's your problem today. This problem was recently asked by Apple:
+
+You are given the root of a binary tree. You need to implement 2 functions:
+
+1. serialize(root) which serializes the tree into a string representation
+2. deserialize(s) which deserializes the string back to the original tree that it represents
+
+For this problem, often you will be asked to design your own serialization format. However, for simplicity, let's use the pre-order traversal of the tree. Here's your starting point:
+class Node:
+  def __init__(self, val, left=None, right=None):
+    self.val = val
+    self.left = left
+    self.right = right
+
+  def __str__(self):
+    # pre-order printing of the tree.
+    result = ''
+    result += str(self.val)
+    if self.left:
+      result += str(self.left)
+    if self.right:
+      result += str(self.right)
+    return result
+
+def serialize(root):
+  # Fill this in.
+
+def deserialize(data):
+  # Fill this in.
+
+#     1
+#    / \
+#   3   4
+#  / \   \
+# 2   5   7
+tree = Node(1)
+tree.left = Node(3)
+tree.left.left = Node(2)
+tree.left.right = Node(5)
+tree.right = Node(4)
+tree.right.right = Node(7)
+
+print serialize(tree)
+# 1 3 2 # # 5 # # 4 # 7 # #
+print deserialize('1 3 2 # # 5 # # 4 # 7 # #')
+# 132547
+
+
+
+# Problema 66
+Hi, here's your problem today. This problem was recently asked by Twitter:
+
+You are the manager of a number of employees who all sit in a row. The CEO would like to give bonuses to all of your employees, but since the company did not perform so well this year the CEO would like to keep the bonuses to a minimum.
+
+The rules of giving bonuses is that:
+- Each employee begins with a bonus factor of 1x.
+- For each employee, if they perform better than the person sitting next to them, the employee is given +1 higher bonus (and up to +2 if they perform better than both people to their sides).
+
+Given a list of employee's performance, find the bonuses each employee should get.
+
+Example:
+Input: [1, 2, 3, 2, 3, 5, 1]
+Output: [1, 2, 3, 1, 2, 3, 1]
+Here's your starting point:
+def getBonuses(performance):
+  # Fill this in.
+
+print getBonuses([1, 2, 3, 2, 3, 5, 1])
+# [1, 2, 3, 1, 2, 3, 1]
+
+# Problema 67
+Hi, here's your problem today. This problem was recently asked by Twitter:
+
+Given a list of integers, return the bounds of the minimum range that must be sorted so that the whole list would be sorted.
+
+Example:
+Input: [1, 7, 9, 5, 7, 8, 10]
+Output: (1, 5)
+Explanation:
+The numbers between index 1 and 5 are out of order and need to be sorted.
+
+Here's your starting point:
+def findRange(nums):
+  # Fill this in.
+
+print findRange([1, 7, 9, 5, 7, 8, 10])
+# (1, 5)
+
+# Problema 68
+Good morning! Here's your coding interview problem for today.
+This problem was asked by Google.
+Determine whether a doubly linked list is a palindrome. What if it’s singly linked?
+For example, 1 -> 4 -> 3 -> 4 -> 1 returns True while 1 -> 4 returns False.
+
+
+# Problema 69
+Hi, here's your problem today. This problem was recently asked by Uber:
+
+Design a simple stack that supports push, pop, top, and retrieving the minimum element in constant time.
+
+push(x) -- Push element x onto stack.
+pop() -- Removes the element on top of the stack.
+top() -- Get the top element.
+getMin() -- Retrieve the minimum element in the stack.
+
+Note: be sure that pop() and top() handle being called on an empty stack.
+class minStack(object):
+  def __init__(self):
+    # Fill this in.
+
+  def push(self, x):
+    # Fill this in.
+
+  def pop(self):
+    # Fill this in.
+
+  def top(self):
+    # Fill this in.
+
+  def getMin(self):
+    # Fill this in.
+
+x = minStack()
+x.push(-2)
+x.push(0)
+x.push(-3)
+print(x.getMin())
+# -3
+x.pop()
+print(x.top())
+# 0
+print(x.getMin())
+# -2
+
+# Problema 70
+Good morning! Here's your coding interview problem for today.
+This problem was asked by Cisco.
+Given an unsigned 8-bit integer, swap its even and odd bits. The 1st and 2nd bit should be swapped, the 3rd and 4th bit should be swapped, and so on.
+For example, 10101010 should be 01010101. 11100010 should be 11010001.
+Bonus: Can you do this in one line?
+
+# Problema 71
+Hi, here's your problem today. This problem was recently asked by Facebook:
+
+By the way, check out our NEW project AlgoPro (http://algopro.com) for over 60+ video coding sessions with ex-Google/ex-Facebook engineers.
+
+Starting at index 0, for an element n at index i, you are allowed to jump at most n indexes ahead. Given a list of numbers, find the minimum number of jumps to reach the end of the list.
+
+Example:
+Input: [3, 2, 5, 1, 1, 9, 3, 4]
+Output: 2
+Explanation:
+
+The minimum number of jumps to get to the end of the list is 2: 
+3 -> 5 -> 4
+
+Here's a starting point:
+def jumpToEnd(nums):
+  # Fill this in.
+
+print jumpToEnd([3, 2, 5, 1, 1, 9, 3, 4])
+# 2
+
+# Problema 72
+Hi, here's your problem today. This problem was recently asked by Amazon:
+
+By the way, check out our NEW project AlgoPro (http://algopro.com) for over 60+ video coding sessions with ex-Google/ex-Facebook engineers.
+
+The h-index is a metric that attempts to measure the productivity and citation impact of the publication of a scholar. The definition of the h-index is if a scholar has at least h of their papers cited h times. 
+
+Given a list of publications of the number of citations a scholar has, find their h-index.
+
+Example:
+Input: [3, 5, 0, 1, 3]
+Output: 3
+Explanation:
+There are 3 publications with 3 or more citations, hence the h-index is 3.
+
+Here's a starting point:
+def hIndex(publications):
+  # Fill this in.
+
+print hIndex([5, 3, 3, 1, 0])
+# 3
+
+
+
+
+# Problema 73
+Hi, here's your problem today. This problem was recently asked by Microsoft:
+
+By the way, check out our NEW project AlgoPro (http://algopro.com) for over 60+ video coding sessions with ex-Google/ex-Facebook engineers.
+
+Given a list of numbers of size n, where n is greater than 3, find the maximum and minimum of the list using less than 2 * (n - 1) comparisons.
+
+Here's a start:
+def find_min_max(nums):
+  # Fill this in.
+
+print find_min_max([3, 5, 1, 2, 4, 8])
+# (1, 8)
+
+# Problema 74
+Hi, here's your problem today. This problem was recently asked by Microsoft:
+
+By the way, check out our NEW project AlgoPro (http://algopro.com) for over 60+ video coding sessions with ex-Google/ex-Facebook engineers.
+
+A k-ary tree is a tree with k-children, and a tree is symmetrical if the data of the left side of the tree is the same as the right side of the tree. 
+
+Here's an example of a symmetrical k-ary tree.
+        4
+     /     \
+    3        3
+  / | \    / | \
+9   4  1  1  4  9
+Given a k-ary tree, figure out if the tree is symmetrical. 
+
+Here is a starting point:
+class Node():
+  def __init__(self, value, children=[]):
+    self.value = value
+    self.children = children
+
+def is_symmetric(root):
+  # Fill this in.
+
+tree = Node(4)
+tree.children = [Node(3), Node(3)]
+tree.children[0].children = [Node(9), Node(4), Node(1)]
+tree.children[1].children = [Node(1), Node(4), Node(9)]
+print is_symmetric(tree)
+# True
+
+# Problema 75
+Hi, here's your problem today. This problem was recently asked by Amazon:
+
+By the way, check out our NEW project AlgoPro (http://algopro.com) for over 60+ video coding sessions with ex-Google/ex-Facebook engineers.
+
+The h-index is a metric that attempts to measure the productivity and citation impact of the publication of a scholar. The definition of the h-index is if a scholar has at least h of their papers cited h times. 
+
+Given a list of publications of the number of citations a scholar has, find their h-index.
+
+Example:
+Input: [3, 5, 0, 1, 3]
+Output: 3
+Explanation:
+There are 3 publications with 3 or more citations, hence the h-index is 3.
+
+Here's a starting point:
+def hIndex(publications):
+  # Fill this in.
+
+print hIndex([5, 3, 3, 1, 0])
+# 3
+
+# Problema 76
+Hi, here's your problem today. This problem was recently asked by Apple:
+
+Given an array of integers, arr, where all numbers occur twice except one number which occurs once, find the number. Your solution should ideally be O(n) time and use constant extra space. 
+Example:
+Input: arr = [7, 3, 5, 5, 4, 3, 4, 8, 8]
+Output: 7
+class Solution(object):
+  def findSingle(self, nums):
+    # Fill this in.
+
+nums = [1, 1, 3, 4, 4, 5, 6, 5, 6]
+print(Solution().findSingle(nums))
+# 3
+
+# Problema 77
+Hi, here's your problem today. This problem was recently asked by Apple:
+
+By the way, check out our NEW project AlgoPro (http://algopro.com) for over 60+ video coding sessions with ex-Google/ex-Facebook engineers.
+
+The Fibonacci sequence is the integer sequence defined by the recurrence relation: F(n) = F(n-1) + F(n-2), where F(0) = 0 and F(1) = 1. In other words, the nth Fibonacci number is the sum of the prior two Fibonacci numbers. Below are the first few values of the sequence: 
+
+0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144...
+
+Given a number n, print the n-th Fibonacci Number. 
+Examples:
+Input: n = 3
+Output: 2
+
+Input: n = 7
+Output: 13
+Here's a starting point:
+class Solution():
+  def fibonacci(self, n):
+    # fill this in.
+
+n = 9
+print(Solution().fibonacci(n))
+# 34
+
+# Problema 78
+Hi, here's your problem today. This problem was recently asked by Twitter:
+
+Given an array of characters with repeats, compress it in place. The length after compression should be less than or equal to the original array.
+
+Example:
+Input: ['a', 'a', 'b', 'c', 'c', 'c']
+Output: ['a', '2', 'b', 'c', '3']
+Here's a starting point:
+class Solution(object):
+  def compress(self, chars):
+    # Fill this in.
+
+print Solution().compress(['a', 'a', 'b', 'c', 'c', 'c'])
+# ['a', '2', 'b', 'c', '3']
+
+# Problema 79
+Hi, here's your problem today. This problem was recently asked by Twitter:
+
+Given a Roman numeral, find the corresponding decimal value. Inputs will be between 1 and 3999. 
+
+Example: 
+Input: IX
+Output: 9
+
+Input: VII
+Output: 7
+
+Input: MCMIV
+Output: 1904
+Roman numerals are based on the following symbols: 
+I     1
+IV    4
+V     5
+IX    9 
+X     10
+XL    40
+L     50
+XC    90
+C     100
+CD    400
+D     500
+CM    900
+M     1000
+Numbers are strings of these symbols in descending order. In some cases, subtractive notation is used to avoid repeated characters. The rules are as follows:
+1.) I placed before V or X is one less, so 4 = IV (one less than 5), and 9 is IX (one less than 10)
+2.) X placed before L or C indicates ten less, so 40 is XL (10 less than 50) and 90 is XC (10 less than 100). 
+3.) C placed before D or M indicates 100 less, so 400 is CD (100 less than 500), and 900 is CM (100 less than 1000).
+class Solution():
+  def romanToInt(self, s):
+    # Fill this in.
+    
+n = 'MCMX'
+print(Solution().romanToInt(n))
+# 1910
+
+# Problema 80
+Hi, here's your problem today. This problem was recently asked by LinkedIn:
+
+Given a string, rearrange the string so that no character next to each other are the same. If no such arrangement is possible, then return None.
+
+Example:
+Input: abbccc
+Output: cbcbca
+def rearrangeString(s):
+  # Fill this in.
+
+print rearrangeString('abbccc')
+# cbcabc
+
+# Problema 81
+Hi, here's your problem today. This problem was recently asked by Uber:
+
+Given a number of integers, combine them so it would create the largest number.
+
+Example:
+Input:  [17, 7, 2, 45, 72]
+Output:  77245217
+def largestNum(nums):
+  # Fill this in.
+
+print largestNum([17, 7, 2, 45, 72])
+# 77245217
+
+# Problema 82
+Hi, here's your problem today. This problem was recently asked by AirBNB:
+
+Given a sorted list of positive numbers, find the smallest positive number that cannot be a sum of any subset in the list.
+
+Example:
+Input: [1, 2, 3, 8, 9, 10]
+Output: 7
+Numbers 1 to 6 can all be summed by a subset of the list of numbers, but 7 cannot.
+def findSmallest(nums):
+  # Fill this in.
+
+print findSmallest([1, 2, 3, 8, 9, 10])
+# 7
+
+# Problema 83
+Hi, here's your problem today. This problem was recently asked by Facebook:
+
+You are given the root of a binary tree. Find the path between 2 nodes that maximizes the sum of all the nodes in the path, and return the sum. The path does not necessarily need to go through the root.
+class Node:
+  def __init__(self, val):
+    self.val = val
+    self.left = None
+    self.right = None
+
+def maxPathSum(root):
+  # Fill this in.
+
+# (* denotes the max path)
+#       *10
+#       /  \
+#     *2   *10
+#     / \     \
+#   *20  1    -25
+#             /  \
+#            3    4
+root = Node(10)
+root.left = Node(2)
+root.right = Node(10)
+root.left.left = Node(20)
+root.left.right = Node(1)
+root.right.right = Node(-25)
+root.right.right.left = Node(3)
+root.right.right.right = Node(4)
+print maxPathSum(root)
+# 42
+
+# Problema 84
+Hi, here's your problem today. This problem was recently asked by Facebook:
+
+You are given an array of integers. Return all the permutations of this array.
+def permute(nums):
+  # Fill this in.
+
+print permute([1, 2, 3])
+# [[1, 2, 3], [2, 1, 3], [2, 3, 1], [1, 3, 2], [3, 1, 2], [3, 2, 1]]
+
+# Problema 85
+Hi, here's your problem today. This problem was recently asked by Amazon:
+
+You are given an array of integers. Return the length of the longest consecutive elements sequence in the array.
+
+For example, the input array [100, 4, 200, 1, 3, 2] has the longest consecutive sequence 1, 2, 3, 4, and thus, you should return its length, 4.
+def longest_consecutive(nums):
+  # Fill this in.
+
+print longest_consecutive([100, 4, 200, 1, 3, 2])
+# 4
+
+Can you do this in linear time?
+
+# Problema 86
+Hi, here's your problem today. This problem was recently asked by Amazon:
+
+You are given an array of integers, and an integer K. Return the subarray which sums to K. You can assume that a solution will always exist.
+def find_continuous_k(list, k):
+  # Fill this in.
+
+print find_continuous_k([1, 3, 2, 5, 7, 2], 14)
+# [2, 5, 7]
+
+Can you do this in linear time?
+
+
+# Problema 87
+Hi, here's your problem today. This problem was recently asked by Microsoft:
+
+You are given a doubly linked list. Determine if it is a palindrome. 
+
+Can you do this for a singly linked list?
+class Node(object):
+  def __init__(self, val):
+    self.val = val
+    self.next = None
+    self.prev = None
+
+def is_palindrome(node):
+  # Fill this in.
+
+node = Node('a')
+node.next = Node('b')
+node.next.prev = node
+node.next.next = Node('b')
+node.next.next.prev = node.next
+node.next.next.next = Node('a')
+node.next.next.next.prev = node.next.next
+
+print is_palindrome(node)
+# True
+2
+# Problema 88
+Hi, here's your problem today. This problem was recently asked by Microsoft:
+
+Given the root of a binary tree, print its level-order traversal. For example:
+  1
+ / \
+2   3
+   / \
+  4   5
+
+The following tree should output 1, 2, 3, 4, 5.
+class Node:
+  def __init__(self, val, left=None, right=None):
+    self.val = val
+    self.left = left
+    self.right = right
+
+def print_level_order(root):
+  # Fill this in.
+
+root = Node(1, Node(2), Node(3, Node(4), Node(5)))
+print_level_order(root)
+# 1 2 3 4 5
+
+
+# Problema 89
+Hi, here's your problem today. This problem was recently asked by LinkedIn:
+
+Given a non-empty array where each element represents a digit of a non-negative integer, add one to the integer. The most significant digit is at the front of the array and each element in the array contains only one digit. Furthermore, the integer does not have leading zeros, except in the case of the number '0'. 
+
+Example: 
+Input: [2,3,4]
+Output: [2,3,5]
+class Solution():
+  def plusOne(self, digits):
+    # Fill this in.
+
+num = [2, 9, 9]
+print(Solution().plusOne(num))
+# [3, 0, 0]
+
+# Problema 90
+Hi, here's your problem today. This problem was recently asked by Twitter:
+
+Given an array of integers of size n, where all elements are between 1 and n inclusive, find all of the elements of [1, n] that do not appear in the array. Some numbers may appear more than once.
+
+Example:
+Input: [4,5,2,6,8,2,1,5]
+Output: [3,7]
+class Solution(object):
+  def findDisappearedNumbers(self, nums):
+    # Fill this in.
+
+nums = [4, 6, 2, 6, 7, 2, 1]
+print(Solution().findDisappearedNumbers(nums))
+# [3, 5]
+
+# Problema 91
+Hi, here's your problem today. This problem was recently asked by Twitter:
+
+You are given the root of a binary tree. Find the level for the binary tree with the minimum sum, and return that value.
+
+For instance, in the example below, the sums of the trees are 10, 2 + 8 = 10, and 4 + 1 + 2 = 7. So, the answer here should be 7.
+class Node:
+  def __init__(self, value, left=None, right=None):
+    self.val = value
+    self.left = left
+    self.right = right
+
+def minimum_level_sum(root):
+  # Fill this in.
+
+#     10
+#    /  \
+#   2    8
+#  / \    \
+# 4   1    2
+node = Node(10)
+node.left = Node(2)
+node.right = Node(8)
+node.left.left = Node(4)
+node.left.right = Node(1)
+node.right.right = Node(2)
+
+print minimum_level_sum(node)
+
+# Problema 92
+
+Hi, here's your problem today. This problem was recently asked by Apple:
+
+You are given the root of a binary tree, along with two nodes, A and B. Find and return the lowest common ancestor of A and B. For this problem, you can assume that each node also has a pointer to its parent, along with its left and right child.
+class TreeNode:
+  def __init__(self, val):
+    self.left = None
+    self.right = None
+    self.parent = None
+    self.val = val
+
+
+def lowestCommonAncestor(root, a, b):
+  # Fill this in.
+
+#   a
+#  / \
+# b   c
+#    / \
+#   d*  e*
+root = TreeNode('a')
+root.left = TreeNode('b')
+root.left.parent = root
+root.right = TreeNode('c')
+root.right.parent = root
+a = root.right.left = TreeNode('d')
+root.right.left.parent = root.right
+b = root.right.right = TreeNode('e')
+root.right.right.parent = root.right
+
+print lowestCommonAncestor(root, a, b).val
+# c
+
+# Problema 92
+Hi, here's your problem today. This problem was recently asked by Apple:
+
+You are given two strings, A and B. Return whether A can be shifted some number of times to get B.
+
+Eg. A = abcde, B = cdeab should return true because A can be shifted 3 times to the right to get B. A = abc and B= acb should return false.
+def is_shifted(a, b):
+  # Fill this in.
+  
+print is_shifted('abcde', 'cdeab')
+# True
+
+# Problema 93
+Hi, here's your problem today. This problem was recently asked by Microsoft:
+
+Given the root of a binary tree, print its level-order traversal. For example:
+  1
+ / \
+2   3
+   / \
+  4   5
+
+The following tree should output 1, 2, 3, 4, 5.
+class Node:
+  def __init__(self, val, left=None, right=None):
+    self.val = val
+    self.left = left
+    self.right = right
+
+def print_level_order(root):
+  # Fill this in.
+
+root = Node(1, Node(2), Node(3, Node(4), Node(5)))
+print_level_order(root)
+# 1 2 3 4 5
+
+# Problema 94
+Hi, here's your problem today. This problem was recently asked by Uber:
+
+Given a linked list, determine if the linked list has a cycle in it. For notation purposes, we use an integer pos which represents the zero-indexed position where the tail connects to.
+
+Example: 
+Input: head = [4,3,2,1,0], pos = 1.  
+Output: true
+The example indicates a list where the tail connects to the second node.
+class ListNode(object):
+  def __init__(self, x):
+    self.val = x
+    self.next = None
+
+class Solution(object):
+  def hasCycle(self, head):
+    # Fill this in.
+
+testHead = ListNode(4)
+node1 = ListNode(3)
+testHead.next = node1
+node2 = ListNode(2)
+node1.next = node2
+node3 = ListNode(1)
+node2.next = node3
+testTail = ListNode(0)
+node3.next = testTail
+testTail.next = node1
+
+print(Solution().hasCycle(testHead))
+# True
+
+# Problema 95
+Hi, here's your problem today. This problem was recently asked by AirBNB:
+
+Given a non-empty list of words, return the k most frequent words. The output should be sorted from highest to lowest frequency, and if two words have the same frequency, the word with lower alphabetical order comes first. Input will contain only lower-case letters.
+
+Example: 
+Input: ["daily", "interview", "pro", "pro", 
+"for", "daily", "pro", "problems"], k = 2
+Output: ["pro", "daily"]
+class Solution(object):
+  def topKFrequent(self, words, k):
+    # Fill this in.
+
+words = ["daily", "interview", "pro", "pro", "for", "daily", "pro", "problems"]
+k = 2
+print(Solution().topKFrequent(words, k))
+# ['pro', 'daily']
+
+
+# Problema 96
+
+Hi, here's your problem today. This problem was recently asked by Google:
+
+Design a Tic-Tac-Toe game played between two players on an n x n grid. A move is guaranteed to be valid, and a valid move is one placed on an empty block in the grid. A player who succeeds in placing n of their marks in a horizontal, diagonal, or vertical row wins the game. Once a winning condition is reached, the game ends and no more moves are allowed. Below is an example game which ends in a winning condition: 
+Given n = 3, assume that player 1 is "X" and player 2 is "O" 
+board = TicTacToe(3);
+
+board.move(0, 0, 1); -> Returns 0 (no one wins)
+|X| | |
+| | | |    // Player 1 makes a move at (0, 0).
+| | | |
+
+board.move(0, 2, 2); -> Returns 0 (no one wins)
+|X| |O|
+| | | |    // Player 2 makes a move at (0, 2).
+| | | |
+
+board.move(2, 2, 1); -> Returns 0 (no one wins)
+|X| |O|
+| | | |    // Player 1 makes a move at (2, 2).
+| | |X|
+
+board.move(1, 1, 2); -> Returns 0 (no one wins)
+|X| |O|
+| |O| |    // Player 2 makes a move at (1, 1).
+| | |X|
+
+board.move(2, 0, 1); -> Returns 0 (no one wins)
+|X| |O|
+| |O| |    // Player 1 makes a move at (2, 0).
+|X| |X|
+
+board.move(1, 0, 2); -> Returns 0 (no one wins)
+|X| |O|
+|O|O| |    // Player 2 makes a move at (1, 0).
+|X| |X|
+
+board.move(2, 1, 1); -> Returns 1 (player 1 wins)
+|X| |O|
+|O|O| |    // Player 1 makes a move at (2, 1).
+|X|X|X|
+
+Here's a starting point:
+class TicTacToe(object):
+  def __init__(self, n):
+    # Fill this in.
+
+  def move(self, row, col, player):
+    # Fill this in.
+
+board = TicTacToe(3)
+board.move(0, 0, 1)
+board.move(0, 2, 2)
+board.move(2, 2, 1)
+board.move(1, 1, 2)
+board.move(2, 0, 1)
+board.move(1, 0, 2)
+print(board.move(2, 1, 1))
+
+
+# Problema 97
+Hi, here's your problem today. This problem was recently asked by Facebook:
+
+Given a file path with folder names, '..' (Parent directory), and '.' (Current directory), return the shortest possible file path (Eliminate all the '..' and '.').
+
+Example
+Input: '/Users/Joma/Documents/../Desktop/./../'
+Output: '/Users/Joma/'
+def shortest_path(file_path):
+  # Fill this in.
+
+print shortest_path('/Users/Joma/Documents/../Desktop/./../')
+# /Users/Joma/
+
+
+# Problema 98
+Hi, here's your problem today. This problem was recently asked by Facebook:
+
+Given a directed graph, reverse the directed graph so all directed edges are reversed. 
+
+Example:
+Input:
+A -> B, B -> C, A ->C
+
+Output:
+B->A, C -> B, C -> A
+Here's a starting point:
+from collections import defaultdict
+
+class Node:
+  def __init__(self, value):
+    self.adjacent = []
+    self.value = value
+
+def reverse_graph(graph):
+  # Fill this in.
+
+a = Node('a')
+b = Node('b')
+c = Node('c')
+
+a.adjacent += [b, c]
+b.adjacent += [c]
+
+graph = {
+    a.value: a,
+    b.value: b,
+    c.value: c,
+}
+
+for _, val in reverse_graph(graph).items():
+  print(val.adjacent)
+# []
+# ['a', 'b']
+# ['a']
+
+# Problema 99
+Hi, here's your problem today. This problem was recently asked by Amazon:
+
+Version numbers are strings that are used to identify unique states of software products. A version number is in the format a.b.c.d. and so on where a, b, etc. are numeric strings separated by dots. These generally represent a hierarchy from major to minor changes. Given two version numbers version1 and version2, conclude which is the latest version number. Your code should do the following: 
+If version1 > version2 return 1. 
+If version1 < version2 return -1.
+Otherwise return 0. 
+
+Note that the numeric strings such as a, b, c, d, etc. may have leading zeroes, and that the version strings do not start or end with dots. Unspecified level revision numbers default to 0.
+
+Example: 
+Input: 
+version1 = "1.0.33"
+version2 = "1.0.27"
+Output: 1 
+#version1 > version2
+
+Input:
+version1 = "0.1"
+version2 = "1.1"
+Output: -1
+#version1 < version2
+
+Input: 
+version1 = "1.01"
+version2 = "1.001"
+Output: 0
+#ignore leading zeroes, 01 and 001 represent the same number. 
+
+Input:
+version1 = "1.0"
+version2 = "1.0.0"
+Output: 0
+#version1 does not have a 3rd level revision number, which
+defaults to "0"
+Here's a starting point
+class Solution:
+  def compareVersion(self, version1, version2):
+    # Fill this in.
+
+version1 = "1.0.1"
+version2 = "1"
+print(Solution().compareVersion(version1, version2))
+# 1
+
+# Problema 100
+Hi, here's your problem today. This problem was recently asked by Amazon:
+
+MS Excel column titles have the following pattern: A, B, C, ..., Z, AA, AB, ..., AZ, BA, BB, ..., ZZ, AAA, AAB, ... etc. In other words, column 1 is named "A", column 2 is "B", column 26 is "Z", column 27 is "AA" and so forth. Given a positive integer, find its corresponding column name. 
+Examples: 
+Input: 26
+Output: Z
+
+Input: 51
+Output: AY
+
+Input: 52
+Output: AZ
+
+Input: 676
+Output: YZ
+
+Input: 702
+Output: ZZ
+
+Input: 704
+Output: AAB
+Here is a starting point:
+class Solution:
+  def convertToTitle(self, n):
+    # Fill this in.
+
+input1 = 1
+input2 = 456976
+input3 = 28
+print(Solution().convertToTitle(input1))
+# A
+print(Solution().convertToTitle(input2))
+# YYYZ
+print(Solution().convertToTitle(input3))
+# AB
+
+# Problema 101
+
+Hi, here's your problem today. This problem was recently asked by Apple:
+
+You are given a tree, and your job is to print it level-by-level with linebreaks.
+    a
+   / \
+  b   c
+ / \ / \
+d  e f  g
+
+The output should be
+a
+bc
+defg
+Here's a starting point:
+from collections import deque
+
+class Node(object):
+  def __init__(self, val):
+    self.val = val
+    self.left = None
+    self.right = None
+
+  def __str__(self):
+    # Fill this in.
+
+tree = Node('a')
+tree.left = Node('b')
+tree.right = Node('c')
+tree.left.left = Node('d')
+tree.left.right = Node('e')
+tree.right.left = Node('f')
+tree.right.right = Node('g')
+
+print tree
+# a
+# bc
+
+# Problema 102
+Hi, here's your problem today. This problem was recently asked by Apple:
+
+In many spreadsheet applications, the columns are marked with letters. From the 1st to the 26th column the letters are A to Z. Then starting from the 27th column it uses AA, AB, ..., ZZ, AAA, etc.
+
+Given a number n, find the n-th column name.
+def column_name(n):
+  # Fill this in.
+
+print column_name(26)
+print column_name(27)
+print column_name(28)
+# Z
+# AA
+# AB
+
+# Problema 103
+Hi, here's your problem today. This problem was recently asked by Microsoft:
+
+An IP Address is in the format of A.B.C.D, where A, B, C, D are all integers between 0 to 255.
+
+Given a string of numbers, return the possible IP addresses you can make with that string by splitting into 4 parts of A, B, C, D.
+
+Keep in mind that integers can't start with a 0! (Except for 0)
+
+Example:
+Input: 1592551013
+Output: ['159.255.101.3', '159.255.10.13']
+def ip_addresses(s, ip_parts=[]):
+  # Fill this in.
+
+print ip_addresses('1592551013')
+# ['159.255.101.3', '159.255.10.13']
+
+# Problema 104
+Hi, here's your problem today. This problem was recently asked by Microsoft:
+
+Return the longest run of 1s for a given integer n's binary representation.
+
+Example:
+Input: 242
+Output: 4
+242 in binary is 0b11110010, so the longest run of 1 is 4.
+def longest_run(n):
+  # Fill this in.
+
+print longest_run(242)
+# 4
+
+# Problema 105
+Hi, here's your problem today. This problem was recently asked by Twitter:
+
+Given an integer, check if that integer is a palindrome. For this problem do not convert the integer to a string to check if it is a palindrome.
+import math
+
+def is_palindrome(n):
+  # Fill this in.
+
+print is_palindrome(1234321)
+# True
+print is_palindrome(1234322)
+# False
+
+
+
+# Problema 106
+Hi, here's your problem today. This problem was recently asked by Twitter:
+
+Given a string with only ( and ), find the minimum number of characters to add or subtract to fix the string such that the brackets are balanced.
+
+Example:
+Input: '(()()'
+Output: 1
+Explanation:
+
+The fixed string could either be ()() by deleting the first bracket, or (()()) by adding a bracket. These are not the only ways of fixing the string, there are many other ways by adding it in different positions!
+
+
+Here's some code to start with:
+def fix_brackets(s):
+  # Fill this in.
+
+print fix_brackets('(()()')
+# 1
+
+# Problema 107
+Hi, here's your problem today. This problem was recently asked by LinkedIn:
+
+Given a binary tree, find the most frequent subtree sum. 
+
+Example:
+   3
+  / \
+ 1   -3
+
+The above tree has 3 subtrees. The root node with 3, and the 2 leaf nodes, which gives us a total of 3 subtree sums. The root node has a sum of 1 (3 + 1 + -3), the left leaf node has a sum of 1, and the right leaf node has a sum of -3. Therefore the most frequent subtree sum is 1.
+
+If there is a tie between the most frequent sum, you can return any one of them.
+
+Here's some starter code for the problem:
+class Node():
+  def __init__(self, value, left=None, right=None):
+    self.val = value
+    self.left = left
+    self.right = right
+
+def most_freq_subtree_sum(root):
+  # fill this in.
+
+root = Node(3, Node(1), Node(-3))
+print(most_freq_subtree_sum(root))
+# 1
+
+
+# Problema 108
+Hi, here's your problem today. This problem was recently asked by Uber:
+
+You are given a list of n numbers, where every number is at most k indexes away from its properly sorted index. Write a sorting algorithm (that will be given the number k) for this list that can solve this in O(n log k)
+
+Example:
+Input: [3, 2, 6, 5, 4], k=2
+Output: [2, 3, 4, 5, 6]
+As seen above, every number is at most 2 indexes away from its proper sorted index.
+
+Here's a starting point:
+def sort_partially_sorted(nums, k):
+  # Fill this in.
+
+print sort_partially_sorted([3, 2, 6, 5, 4], 2)
+# [2, 3, 4, 5, 6]
+
+# Problema 109
+Hi, here's your problem today. This problem was recently asked by AirBNB:
+
+We have a list of tasks to perform, with a cooldown period. We can do multiple of these at the same time, but we cannot run the same task simultaneously.
+
+Given a list of tasks, find how long it will take to complete the tasks in the order they are input.
+tasks = [1, 1, 2, 1]
+cooldown = 2
+output: 7 (order is 1 _ _ 1 2 _ 1)
+def findTime(arr, cooldown):
+  # Fill this in.
+
+print findTime([1, 1, 2, 1], 2)
+# 7
+
+
+# Problema 110
+Hi, here's your problem today. This problem was recently asked by Google:
+
+A chess board is an 8x8 grid. Given a knight at any position (x, y) and a number of moves k, we want to figure out after k random moves by a knight, the probability that the knight will still be on the chessboard. Once the knight leaves the board it cannot move again and will be considered off the board.
+
+Here's some starter code:
+def is_knight_on_board(x, y, k, cache={}):
+  # Fill this in.
+
+print is_knight_on_board(0, 0, 1)
+# 0.25
+
+# Problema 111
+Hi, here's your problem today. This problem was recently asked by Google:
+
+Given a sorted list, create a height balanced binary search tree, meaning the height differences of each node can only differ by at most 1.
+
+Here's some code to start with:
+class Node:
+  def __init__(self, value, left=None, right=None):
+    self.value = value
+    self.left = left
+    self.right = right
+
+  def __str__(self):
+    answer = str(self.value)
+    if self.left:
+      answer += str(self.left)
+    if self.right:
+      answer += str(self.right)
+    return answer
+
+def create_height_balanced_bst(nums):
+  # Fill this in.
+
+tree = create_height_balanced_bst([1, 2, 3, 4, 5, 6, 7, 8])
+# 53214768
+#  (pre-order traversal)
+#       5
+#      / \
+#     3    7
+#    / \  / \
+#   2   4 6  8
+#  /
+# 1
+
+
+# Problema 112
+Hi, here's your problem today. This problem was recently asked by Amazon:
+
+Given a binary tree and a given node value, return all of the node's cousins. Two nodes are considered cousins if they are on the same level of the tree with different parents. You can assume that all nodes will have their own unique value.
+
+Here's some starter code:
+class Node(object):
+  def __init__(self, value, left=None, right=None):
+    self.value = value
+    self.left = left
+    self.right = right
+
+class Solution(object):
+  def list_cousins(self, tree, val):
+    # Fill this in.
+
+#     1
+#    / \
+#   2   3
+#  / \   \
+# 4   6   5
+root = Node(1)
+root.left = Node(2)
+root.left.left = Node(4)
+root.left.right = Node(6)
+root.right = Node(3)
+root.right.right = Node(5)
+
+print Solution().list_cousins(root, 5)
+# [4, 6]
+
+# Problema 113
+Hi, here's your problem today. This problem was recently asked by Facebook:
+
+Given a list of building in the form of (left, right, height), return what the skyline should look like. The skyline should be in the form of a list of (x-axis, height), where x-axis is the next point where there is a change in height starting from 0, and height is the new height starting from the x-axis.
+
+Here's some starter code:
+def generate_skyline(buildings):
+  # Fill this in.
+
+#            2 2 2
+#            2 2 2
+#        1 1 2 2 2 1 1
+#        1 1 2 2 2 1 1
+#        1 1 2 2 2 1 1
+# pos: 1 2 3 4 5 6 7 8 9
+print generate_skyline([(2, 8, 3), (4, 6, 5)])
+# [(2, 3), (4, 5), (7, 3), (9, 0)]
+
+# Problema 114
+Hi, here's your problem today. This problem was recently asked by Facebook:
+
+Kaprekar's Constant is the number 6174. This number is special because it has the property where for any 4-digit number that has 2 or more unique digits, if you repeatedly apply a certain function it always reaches the number 6174. 
+
+This certain function is as follows:
+- Order the number in ascending form and descending form to create 2 numbers.
+- Pad the descending number with zeros until it is 4 digits in length.
+- Subtract the ascending number from the descending number.
+- Repeat.
+
+Given a number n, find the number of times the function needs to be applied to reach Kaprekar's constant. Here's some starter code:
+KAPREKAR_CONSTANT = 6174
+
+def num_kaprekar_iterations(n):
+  # Fill this in.
+
+print num_kaprekar_iterations(123)
+# 3
+# Explanation:
+#  3210 - 123 = 3087
+#  8730 - 0378 = 8352
+#  8532 - 2358 = 6174 (3 iterations)
+
+# Problema 115
