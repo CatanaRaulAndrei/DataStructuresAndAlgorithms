@@ -15,6 +15,7 @@ for(int i=0;i<n;i++){
     cout<<p[i]<<" ";//*(p+i)
 }
 delete[] p;//eliberam memoria din heap
-p=nullptr;
+p=nullptr; // stergem legatura dintre pointer si locatia de memorie stearsa . Pointerul indica catre valoarea 0.
+// nullptr este pointerul null , adica pointerul cu valoarea zero. 
   return 0;
 }
