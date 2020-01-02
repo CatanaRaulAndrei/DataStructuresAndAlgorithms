@@ -1,5 +1,25 @@
 #include <iostream>
 using namespace std;
+
+
+/*
+Alocarea dinamica a memoriei(p,n,temporar) :
+	
+	1. Initializare
+	p=nullptr
+	n=valoare
+	temporar=0
+	
+	2. Se aloca memorie dinamic
+	p=new int[n]
+	
+	3. Se insereaza valori in zona de memorie alocata din heap
+	pt. i apartine [0,valoare) :
+		citeste temporar
+		p[i]=temporar
+		
+*/
+
 //Alocarea dinamica a memoriei pentru un vector
 int main()
 {int* p=nullptr,n,temporar;
