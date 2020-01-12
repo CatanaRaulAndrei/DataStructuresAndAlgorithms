@@ -29,7 +29,7 @@ bool Stack::isFull(){
 // Insert
 void Stack::push(){
     //  check if the stack is full - Overflow
-    if(IsFull()==true){
+    if(isFull()==true){
         cout<<"Stack is full-Overflow";
     }
     else{
