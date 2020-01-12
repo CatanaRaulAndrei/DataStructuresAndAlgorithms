@@ -15,6 +15,7 @@ class Stack{
     void push(); // Insert in stack
     void pop(); //  Delete from the stack
     bool isEmpty(); // check if stack is empty
+    bool isFull(); // check if stack is full	
     void display(); // display the stack
     
 };
@@ -22,10 +23,13 @@ class Stack{
 bool Stack::isEmpty(){
    return (top==-1)?true:false;
 }
+bool Stack::isFull(){
+  return (top==size-1)?true:false;	
+}
 // Insert
 void Stack::push(){
     //  check if the stack is full - Overflow
-    if(top==size-1){
+    if(IsFull()==true){
         cout<<"Stack is full-Overflow";
     }
     else{
